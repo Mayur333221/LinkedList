@@ -58,7 +58,35 @@ class LinkedList
     void remove(string val)
     {
       // If the head is to be deleted
-     
+
+      Node* temp = head;  // storing head node 
+    Node* prev = NULL; 
+      
+    // if head is to be deleted
+    if (temp != NULL && (temp->data).compare(val) == 0) 
+    { 
+        head = temp->next; // Change head 
+        delete temp;            // free old head memory 
+        return; 
+    } 
+  
+  // else search for the node to be deleted amd keep track of prev node 
+    while (temp != NULL && (temp->data).compare(val) != 0) 
+    { 
+        prev = temp; 
+        temp = temp->next; 
+    } 
+  
+    // If key is not present in linked list 
+    if (temp == NULL) 
+        return; 
+  
+    // Unlink the node from linked list 
+    prev->next = temp->next; 
+  
+    // Free memory 
+    delete temp; 
+
     }
 
     void display()
