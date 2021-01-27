@@ -58,48 +58,7 @@ class LinkedList
     void remove(string val)
     {
       // If the head is to be deleted
-      if ((head->data).compare(val) == 0)
-      {
-        delete head;
-        head = head->next;
-        cout<<"Linked List Modified\n";
-        return;
-      }
-
-      // If there is only one element in the list
-      if (head->next == NULL)
-      {
-        // If the head is to be deleted. Assign null to the head
-        if ((head->data).compare(val) == 0)
-        {
-          delete head;
-          head = NULL;
-          cout<<"Linked List Modified\n";
-          return;
-        }
-        // else print, value not found
-        cout << "Value not found!" << endl;
-        return;
-      }
-
-      // Else loop over the list and search for the node to delete
-      Node* temp = head;
-      while(temp->next!= NULL)
-      {
-        // When node is found, delete the node and modify the pointers
-        if ((temp->next->data).compare(val) == 0)
-        {
-          Node* temp_ptr = temp->next->next;
-          delete temp->next;
-          temp->next = temp_ptr;
-          cout<<"Linked List Modified\n";
-          return;
-        }
-        temp = temp->next;
-      }
-
-      // Else, the value was neve in the list
-      cout << "Value not found" << endl;
+     
     }
 
     void display()
